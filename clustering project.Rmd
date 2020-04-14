@@ -1,0 +1,58 @@
+---
+title: "kmeans clustering project  "
+author: "Ali"
+date: "10/04/2020"
+output: slidy_presentation
+logo: RStudio-Ball.png
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# about the app
+
+This is an R Shiny application . 
+it allows users to preprocess data and run a k means analysis , the results returned are information about the clustering process ( clusters,centers ,other parameters ) , a scatter plot showing these clusters and 2 heatmaps corresponding to the processed data matrix and its transpose .
+
+For more details on using R shiny see <https://shiny.rstudio.com>.
+
+
+# kmeans clustering alghorithm 
+## first what is clustering ?  
+
+Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense) to each other than to those in other groups (clusters).
+
+![](download.png)
+
+
+# kmeans
+
+kmeans is just a method (alghorithm) to cluster data
+```{r ,echo = TRUE}
+data<-iris[,1:4] #we must keep only numeric features  
+scaled_data<-scale(data) #normalize data 
+kfit=kmeans(data ,3) #lets suppose we want three clusters  
+pairs(scaled_data , col= kfit$cluster)#plot
+```
+
+
+# How it works 
+
+ 1/  click the **start** button
+ 
+ 2/  chose one of the existing datsets or import your data ( the features (columns) should be mostly numeric ) then submit
+ 
+ 3/  chose the number of clusters you want to get and run analysis
+ 
+ 4/  you can switch the number of the clusters and observe the changes instantly.
+
+
+
+# Notes
+This is my first shiny application ,I know that practicaly  this app isn't  very useful but the purpose is to learn how to  use the shiny framework 
+
+please dont hesitate to write me your feedbacks.
+
+thank you.
